@@ -41,3 +41,9 @@ class ShopDB:
         self.cursor.execute('''SELECT id FROM items WHERE title = ?''', [item])
         item_db = self.cursor.fetchone()
         return item_db
+    
+    def insert_id(self, item_id):
+        self.cursor.execute('''INSERT INTO cart("item_id")
+                            VALUES(?)''',
+                            [item_id])
+        self.connection.commit()

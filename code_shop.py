@@ -94,10 +94,17 @@ def loggin():
 
 
 def add_to_cart():
-    print("Який товар ви хочете додати до кошика")
-    item = input(":")
-    if db.items_id(item):
-        cursor
+    while True:
+        print("Який товар ви хочете додати до кошика")
+        item = input(":")
+        item_id = db.items_id(item)
+        if item_id:
+            db.insert_id(item_id)
+        else:
+            print("Такого товару не існує")
+    
+
+    
 
 
 def is_logged():
@@ -120,6 +127,7 @@ def is_logged():
 
 
 
+add_to_cart()
 
 while True:
     print("Яку дію ви хочете виконати?\n")
